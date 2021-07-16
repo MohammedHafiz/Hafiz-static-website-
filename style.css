@@ -1,0 +1,19 @@
+
+.errormsg{
+    color: red;
+}
+.font{
+    font-family: cursive,LucidaHandwriting;
+    color: #292b2c;
+    text-align: justify;
+    
+}
+
+.bg{
+    background: linear-gradient(to bottom, #ffff66 0%, #333300 95%)
+}
+.intro
+{
+    font-size: 5rem;
+    font-family: cursive,LucidaHandwriting;
+}
