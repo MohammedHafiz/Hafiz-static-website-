@@ -1,4 +1,9 @@
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .errormsg{
     color: red;
 }
@@ -10,10 +15,37 @@
 }
 
 .bg{
-    background: linear-gradient(to bottom, #ffff66 0%, #333300 95%)
+    background:H#7289da #ffffff #99aab5#2c2f33 #23272a
 }
 .intro
 {
-    font-size: 5rem;
+    font-size: 4rem;
     font-family: cursive,LucidaHandwriting;
 }
+.fontabout{
+    font-family: cursive,LucidaHandwriting;
+    color: #292b2c;
+    font-size: 2rem;
+
+}
+
+.personal{
+    padding-top: 15%;
+}
+.navbtn{
+    color: white;
+    background-color: white;
+}
+.icon{
+    color: black;
+}
+.b:hover {
+    background-color: yellow;
+  }
+  .font1
+  {
+        font-family: cursive,LucidaHandwriting;
+        color: #292b2c;
+        text-align: justify;
+        font-size: x-large;
+  }

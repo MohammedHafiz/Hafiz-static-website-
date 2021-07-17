@@ -5,17 +5,20 @@ function validateName1()
     var letters = /^[A-Za-z\s]+$/
     if(name=="")
     {
-        display="Please enter a valid name"
+        document.getElementById("checkname1").innerHTML="Please enter a valid name"
+        return false
     }
     else if(name.match(letters))
     {
-        display=""
+        document.getElementById("checkname1").innerHTML=""
+        return true
     }
     else
     {
-        display="Please use characters only"
+        document.getElementById("checkname1").innerHTML="Please use characters only"
+        return false
     }
-    document.getElementById("checkname1").innerHTML=display
+    
 
 }
 function validateName2()
@@ -25,17 +28,19 @@ function validateName2()
     var letters = /^[A-Za-z]+$/
     if(name=="")
     {
-        display="Please enter a valid name"
+        document.getElementById("checkname2").innerHTML="Please enter a valid name"
+        return false
     }
     else if(name.match(letters))
     {
-        display=""
+        document.getElementById("checkname2").innerHTML=""
+        return true
     }
     else
     {
-        display="Please use characters only"
+        document.getElementById("checkname1").innerHTML="Please use characters only"
+        return false
     }
-    document.getElementById("checkname2").innerHTML=display
 
 }
 function validatEmail()
@@ -45,17 +50,19 @@ function validatEmail()
     const letters = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
     if(email=="")
     {
-        display="Please enter your email id"
+        document.getElementById("checkemail").innerHTML="Please enter your email id"
+        return false
     }
     else if(email.match(letters))
     {
-        display=""
+        document.getElementById("checkemail").innerHTML=""
+        return true
     }
     else
     {
-        display="Please enter a valid email id"
+        document.getElementById("checkemail").innerHTML="Please enter a valid email id"
+        return false
     }
-    document.getElementById("checkemail").innerHTML=display
 }
 function validateNumber()
 {
@@ -65,11 +72,13 @@ function validateNumber()
     var letters = /^[A-Za-z]+$/
     if(num=="")
     {
-        display="Please enter your number in the field"
+        document.getElementById("mobile").innerHTML="Please enter your number in the field"
+        return false
     }
     else if(num.match(numbers))
     {
-        display=""
+        document.getElementById("mobile").innerHTML=""
+        return true
     }
     // else if((num.length<10  || num.length>10 )&& num!==letters)
     // {
@@ -77,9 +86,10 @@ function validateNumber()
     // }
    
     else{
-        display="please enter valid number"
+        document.getElementById("mobile").innerHTML="please enter valid number"
+        return false
     }
-    document.getElementById("mobile").innerHTML=display
+
 }
 
 function validatetextArea()
@@ -88,14 +98,17 @@ function validatetextArea()
     var display
     if(char=="")
     {
-        display="Please enter details in this field"
+        document.getElementById("text").innerHTML="Please enter details in this field"
+        return false
     }
     else if(char.length<30)
     {
-        display="Please enter minimum 30 characters"
+        document.getElementById("text").innerHTML="Please enter minimum 30 characters"
+        return false
     }
     else{
-        display=""
+        document.getElementById("text").innerHTML=""
+        return true
     }
-    document.getElementById("text").innerHTML=display
+
 }
