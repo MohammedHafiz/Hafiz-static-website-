@@ -2,7 +2,7 @@ function validateName1()
 {
     var name=document.getElementById("firstname").value
     var display
-    var letters = /^[A-Za-z\s]+$/
+    var letters =/^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
     if(name=="")
     {
         document.getElementById("checkname1").innerHTML="Please enter a valid name"
@@ -25,7 +25,7 @@ function validateName2()
 {
     var name=document.getElementById("lastname").value
     var display
-    var letters = /^[A-Za-z]+$/
+    var letters = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
     if(name=="")
     {
         document.getElementById("checkname2").innerHTML="Please enter a valid name"
@@ -80,10 +80,10 @@ function validateNumber()
         document.getElementById("mobile").innerHTML=""
         return true
     }
-    // else if((num.length<10  || num.length>10 )&& num!==letters)
-    // {
-    //     display="maximum number should be 10"
-    // }
+    else if((num.length<10  || num.length>10 )&& num!=letters)
+    {
+        display="maximum number should be 10"
+    }
    
     else{
         document.getElementById("mobile").innerHTML="please enter valid number"
