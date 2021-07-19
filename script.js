@@ -38,7 +38,7 @@ function validateName2()
     }
     else
     {
-        document.getElementById("checkname1").innerHTML="Please use characters only"
+        document.getElementById("checkname2").innerHTML="Please use characters only"
         return false
     }
 

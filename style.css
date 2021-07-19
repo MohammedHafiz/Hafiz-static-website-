@@ -2,7 +2,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border
 }
 .errormsg{
     color: red;
@@ -19,7 +19,7 @@
 }
 .intro
 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-family: cursive,LucidaHandwriting;
 }
 .fontabout{
@@ -39,9 +39,7 @@
 .icon{
     color: black;
 }
-.b:hover {
-    background-color: yellow;
-  }
+
   .font1
   {
         font-family: cursive,LucidaHandwriting;
