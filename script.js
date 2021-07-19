@@ -2,10 +2,15 @@ function validateName1()
 {
     var name=document.getElementById("firstname").value
     var display
-    var letters =/^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
+    var letters =/^[-a-zA-Z-()]*$/
     if(name=="")
     {
-        document.getElementById("checkname1").innerHTML="Please enter a valid name"
+        document.getElementById("checkname1").innerHTML="Required field"
+        return false
+    }
+    else if(name==" ")
+    {
+        document.getElementById("checkname1").innerHTML="Do not enter space as first character"
         return false
     }
     else if(name.match(letters))
@@ -13,6 +18,7 @@ function validateName1()
         document.getElementById("checkname1").innerHTML=""
         return true
     }
+   
     else
     {
         document.getElementById("checkname1").innerHTML="Please use characters only"
@@ -28,7 +34,7 @@ function validateName2()
     var letters = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
     if(name=="")
     {
-        document.getElementById("checkname2").innerHTML="Please enter a valid name"
+        document.getElementById("checkname2").innerHTML="Required field"
         return false
     }
     else if(name.match(letters))
@@ -50,7 +56,7 @@ function validatEmail()
     const letters = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
     if(email=="")
     {
-        document.getElementById("checkemail").innerHTML="Please enter your email id"
+        document.getElementById("checkemail").innerHTML="Required field"
         return false
     }
     else if(email.match(letters))
@@ -67,26 +73,26 @@ function validatEmail()
 function validateNumber()
 {
     var num=document.getElementById("mobileno").value
-    var display
-    var numbers = /^[789]\d{9}$/
+    
+    var numbers = /^[0-9]*$/
     var letters = /^[A-Za-z]+$/
     if(num=="")
     {
-        document.getElementById("mobile").innerHTML="Please enter your number in the field"
+        document.getElementById("mobile").innerHTML="Required field"
         return false
     }
-    else if(num.match(numbers))
+    else if(num.match(numbers) && num.length<10)
+    {
+        document.getElementById("mobile").innerHTML="Please enter 10 digit number"
+        return false
+    }
+    else if(num.match(numbers) && num.length==10 )
     {
         document.getElementById("mobile").innerHTML=""
         return true
     }
-    else if((num.length<10  || num.length>10 )&& num!=letters)
-    {
-        display="maximum number should be 10"
-    }
-   
     else{
-        document.getElementById("mobile").innerHTML="please enter valid number"
+        document.getElementById("mobile").innerHTML="Please enter valid number"
         return false
     }
 
@@ -98,7 +104,7 @@ function validatetextArea()
     var display
     if(char=="")
     {
-        document.getElementById("text").innerHTML="Please enter details in this field"
+        document.getElementById("text").innerHTML="Required field"
         return false
     }
     else if(char.length<30)
