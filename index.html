@@ -203,7 +203,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="mobileno"></label>
-                <input type="text" onkeyup="validateNumber()" maxlength="10" class="form-control" id="mobileno" name="MobileNo" placeholder="Mobile no.">
+                <input type="text" onkeyup="validateNumber()" oninput="this.value=this.value.replace(/[^\d]/,'')" onkeypress="notAllowed()" maxlength="10" minlength="10" class="form-control" id="mobileno" name="MobileNo" placeholder="Mobile no.">
                 <p class="errormsg" id="mobile"></p>
               </div>
               </div>
@@ -249,9 +249,10 @@
 
 <script>
   $("#submit-form").submit((e)=>{
+    e.preventDefault()
     if(validateName1()&& validateName2() && validatEmail() && validateNumber() && validatetextArea())
     {
-      e.preventDefault()
+      
       $.ajax({
           url:"https://script.google.com/macros/s/AKfycbwP8tjNpOfN88sLARVr4zvWlLFKGxzmgIRck2OGAT4Z5F9BPM_y2LzidiNlST9sJEix/exec ",
           data:$("#submit-form").serialize(),
@@ -268,7 +269,12 @@
       })
     }
     else{
-      alert("Please fill all fields correctly")
+      validateName1();
+      validateName2();
+      validatEmail();
+      validateNumber();
+      validatetextArea();
+      
     }
   })
 </script>
