@@ -1,123 +1,155 @@
-function validateName1()
-{
-    var name=document.getElementById("firstname").value
-    var display
-    var letters =/^[-a-zA-Z-()]*$/
-    if(name=="")
-    {
-        document.getElementById("checkname1").innerHTML="Required field"
-        return false
-    }
-    else if(name==" ")
-    {
-        document.getElementById("checkname1").innerHTML="Do not enter space as first character"
-        return false
-    }
-    else if(name.match(letters))
-    {
-        document.getElementById("checkname1").innerHTML=""
-        return true
-    }
-   
-    else
-    {
-        document.getElementById("checkname1").innerHTML="Please use characters only"
-        return false
-    }
+//name validation
+function validateName1(){
+	var namevalue=$('#firstname').val()
+	var letters = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
+	if(namevalue==""){
+		$("#checkname1").html("**Please fill out this field")
+		return false
+	}
+	else if(namevalue==" "){
+		$('#checkname1').html("**Do not enter space as first character")
+		return false
+	}
+	else if((namevalue.length < 3)|| (namevalue.length > 10))
+	{
+	     $('#checkname1').html("**length of username must be between 3 and 10");
+	     return false;
+	
+	}
+	else if(namevalue.match(letters)){
+		$('#checkname1').html("")
+		return true
+	}
+	else{
+		$('#checkname1').html("**Please enter a valid name")
+		return false
+	}
+	}
+    function validateName2(){
+        var namevalue=$('#lastname').val()
+        var letters = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
+        if(namevalue==""){
+            $("#checkname2").html("**Please fill out this field")
+            return false
+        }
+        else if(namevalue==" "){
+            $('#checkname2').html("**Do not enter space as first character")
+            return false
+        }
+        else if((namevalue.length < 3)|| (namevalue.length > 10))
+        {
+             $('#checkname2').html("**length of username must be between 3 and 10");
+             return false;
+        
+        }
+        else if(namevalue.match(letters)){
+            $('#checkname2').html("")
+            return true
+        }
+        else{
+            $('#checkname2').html("**Please enter a valid name")
+            return false
+        }
+        }
     
 
-}
-function validateName2()
-{
-    var name=document.getElementById("lastname").value
-    var display
-    var letters = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
-    if(name=="")
-    {
-        document.getElementById("checkname2").innerHTML="Required field"
-        return false
-    }
-    else if(name.match(letters))
-    {
-        document.getElementById("checkname2").innerHTML=""
-        return true
-    }
-    else
-    {
-        document.getElementById("checkname2").innerHTML="Please use characters only"
-        return false
-    }
+//emailvalidation
+function validatEmail(){
+	var emailvalue=$('#email').val()
+	var mail = /^[^]+@[^]+\.[a-z]{2,3}$/
+	 if(emailvalue==" "){
+		$('#checkemail').html("**Please donot put space")
+		return false	
+	}
+	else if(emailvalue=="")
+	{
+		$('#checkemail').html("**Please fill out this field")
+		return false
+	}
 
-}
-function validatEmail()
-{
-    var email=document.getElementById("email").value
-    var display
-    const letters = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-    if(email=="")
-    {
-        document.getElementById("checkemail").innerHTML="Required field"
-        return false
-    }
-    else if(email.match(letters))
-    {
-        document.getElementById("checkemail").innerHTML=""
-        return true
-    }
-    else
-    {
-        document.getElementById("checkemail").innerHTML="Please enter a valid email id"
-        return false
-    }
-}
-function validateNumber()
-{
-    var num=document.getElementById("mobileno").value
-    
-    var numbers = /^[0-9]*$/
-    var letters = /^[A-Za-z]+$/
-    if(num=="")
-    {
-        document.getElementById("mobile").innerHTML="Required field"
-        return false
-    }
-    else if(num.match(numbers) && num.length<10)
-    {
-        document.getElementById("mobile").innerHTML="Please enter 10 digit number"
-        return false
-    }
-    else if(num.match(numbers) && num.length==10 )
-    {
-        document.getElementById("mobile").innerHTML=""
-        return true
-    }
-    else{
-        document.getElementById("mobile").innerHTML="Please enter valid number"
-        return false
-    }
-
+	else if(emailvalue.match(mail)){
+		$('#checkemail').html("")
+		return true
+	}
+	else{
+		$('#checkemail').html("**Please enter a valid email id")
+		return false
+	}
+	
 }
 
-function validatetextArea()
-{
-    var char=document.getElementById("textarea").value
-    var display
+//mobileNumber validation 
+function validateNumber(){
+	var numvalue=$('#mobileno').val()
+	var numbers=/^[0-9]*$/
+	if(numvalue==""){
+		$('#mobile').html("**Please fill out this field")
+		return false
+	}
+	else if(numvalue==" "){
+		$('#mobile').html("**Please donot enter space in this field")
+		return false
+	}
+	else if(numvalue.match(numbers) && numvalue.length<10)
+    {
+		$('#mobile').html("**Please enter 10 digit number")
+        return false
+    }
+	else if(numvalue.match(numbers) && numvalue.length==10 )
+    {
+        $('#mobile').html("")
+        return true
+    }
+	else{
+		$('#mobile').html("**Please enter a valid number")
+		return false
+	}
+	
+}
+
+//messagevalidation
+
+function validateMessage(){
+	var char=$("#textarea").val()
     if(char=="")
     {
-        document.getElementById("text").innerHTML="Required field"
+        $('#text').html("**Required field")
         return false
     }
-    else if(char.length<30)
+    else if(char.length<10)
     {
-        document.getElementById("text").innerHTML="Please enter minimum 30 characters"
+        $('#text').html("**Please enter minimum 10 characters")
         return false
     }
     else{
-        document.getElementById("text").innerHTML=""
+        $('#text').html("")
         return true
     }
-
 }
+
+//form validation
+$(document).ready(function () {
+$('#firstname').keyup(function(){
+	validateName1();
+});
+$('#lastname').keyup(function(){
+	validateName2();
+});
+
+$('#email').keyup(function(){
+	validatEmail();
+});
+$('#mobileno').keyup(function(){
+	validateNumber();
+});
+$('#textarea').keyup(function(){
+	validateMessage();
+});
+
+
+
+});
+
 $('.navbar-collapse').click(function(){
     $(".navbar-collapse").hide('hide');
 });

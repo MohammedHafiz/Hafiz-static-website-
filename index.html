@@ -185,31 +185,31 @@
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="firstname"></label>
-                  <input type="text" onkeyup="validateName1()"  class="form-control" id="firstname" name="firstname" placeholder="First name">
+                  <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First name">
                   <p class="errormsg" id="checkname1"></p>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="lastname"></label>
-                  <input type="text" onkeyup="validateName2()"  class="form-control" id="lastname" name="lastname" placeholder="Last name">
+                  <input type="text"  class="form-control" id="lastname" name="lastname" placeholder="Last name">
                   <p class="errormsg" id="checkname2"></p>
                 </div>
               </div>
               <div class="row">
               <div class="form-group col-md-6">
                 <label for="email"></label>
-                <input type="email" onkeyup="validatEmail()"  class="form-control" id="email" name="Email" placeholder="Email">
+                <input type="email" class="form-control" id="email" name="Email" placeholder="Email">
                 <p class="errormsg" id="checkemail"></p>
                 
               </div>
               <div class="form-group col-md-6">
                 <label for="mobileno"></label>
-                <input type="text" onkeyup="validateNumber()" oninput="this.value=this.value.replace(/[^\d]/,'')" onkeypress="notAllowed()" maxlength="10" minlength="10" class="form-control" id="mobileno" name="MobileNo" placeholder="Mobile no.">
+                <input type="text" oninput="this.value=this.value.replace(/[^\d]/,'')" onkeypress="notAllowed()" maxlength="10" minlength="10" class="form-control" id="mobileno" name="MobileNo" placeholder="Mobile no.">
                 <p class="errormsg" id="mobile"></p>
               </div>
               </div>
               <div class="form-group">
                 <label for="textarea"></label>
-                 <textarea onkeyup="validatetextArea()"  class="form-control" id=textarea cols="10" rows="5" name="Message" placeholder="Message...."></textarea>
+                 <textarea class="form-control" id=textarea cols="10" rows="5" name="Message" placeholder="Message...."></textarea>
                  <p class="error errormsg" id="text"></p>
               </div>
               <button type="submit" style="background-color:  #2c2f33;" class="b btn border-dark bg text-light">Submit</button>
@@ -250,7 +250,7 @@
 <script>
   $("#submit-form").submit((e)=>{
     e.preventDefault()
-    if(validateName1()&& validateName2() && validatEmail() && validateNumber() && validatetextArea())
+    if(validateName1()&& validateName2() && validatEmail() && validateNumber() && validateMessage())
     {
       
       $.ajax({
@@ -273,7 +273,7 @@
       validateName2();
       validatEmail();
       validateNumber();
-      validatetextArea();
+      validateMessage();
       
     }
   })
